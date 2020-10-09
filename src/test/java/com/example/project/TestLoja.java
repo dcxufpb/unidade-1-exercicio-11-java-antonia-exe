@@ -237,26 +237,33 @@ public class TestLoja {
 
 	@Test
 	public void exercicio02_Customizado() {
-		// Defina seus próprios valores para as variáveis a seguir
-		String nomeLoja = "";
-		String logradouro = "";
-		int numero = 0;
-		String complemento = "";
-		String bairro = "";
-		String municipio = "";
-		String estado = "";
-		String cep = "";
-		String telefone = "";
-		String observacao = "";
-		String cnpj = "";
-		String inscricaoEstadual = "";
+		String nomeLoja = "Magic Box";
+		String logradouro = "Baker St";
+		int numero = 221;
+		String complemento = "EDA A24/25/26";
+		String bairro = "Marylebone";
+		String municipio = "Sunnydale";
+		String estado = "CA";
+		String cep = "79297";
+		String telefone = "(213) 70374-7092";
+		String observacao = "Loja TW (BTVS)";
+		String cnpj = "98.650.809/0001-63";
+		String inscricaoEstadual = "55021852-1";
+
+		String expected = "Magic Box" + BREAK;
+		expected += "Baker St, 221 EDA A24/25/26" + BREAK;
+		expected += "Marylebone - Sunnydale - CA" + BREAK;
+		expected += "CEP:79297 Tel (213) 70374-7092" + BREAK;
+		expected += "Loja TW (BTVS)" + BREAK;
+		expected += "CNPJ: 98.650.809/0001-63" + BREAK;
+		expected += "IE: 55021852-1";;
 
 		Loja lojaCustomizada = new Loja(nomeLoja,
 				new Endereco(logradouro, numero, complemento, bairro, municipio, estado, cep), telefone, observacao,
 				cnpj, inscricaoEstadual);
 
 		// E atualize o texto esperado abaixo
-		rodarTestarRetorno("" + BREAK, lojaCustomizada);
+		rodarTestarRetorno(expected + BREAK, lojaCustomizada);
 	}
 
 	private void rodarTestarRetorno(String expected, Loja loja) {
